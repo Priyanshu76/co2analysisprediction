@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>CO2 Emission Prediction</title>
+</head>
+<body>
+    <div style="background-image: url('static/image/bgimg2.jpg')">
+        <div class="container-fluid">
+            <div class="login">
+                <br><br>
+                <h1 class="text-center" style="color:white">Predict CO2 Emission from Vehicles</h1>
+                <br>
+
+                <form action="{{ url_for('predict')}}" method="post" >
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="color:white">Weight of the Vehicle(Kg) :</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="Weight" class="form-control" required="required" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label" style="color:white">Volume of the Engine :</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="Volume" class="form-control" required="required" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div class="text-center"><button type="submit" class="btn btn-primary">Predict</button></div>
+                </form>
+                <br>
+
+                <div class="text-center" style="color:#F0F8FF; font-size:170%;"><b>{{ prediction_text }}</b></div>
+                <br><br>
+                <div class="container-md">
+                    <img src="static/image/wevol.png" class="img-fluid" alt="Weight,Volume Vs CO2 Emission"/>
+                    <br><br>
+                    <p style="color:white">The r2 score for the dataset used is 0.3. To see the dataset, Click the Button Below:</p>
+                    <a href="/dataset" class="btn btn-primary" role="button">Go to Dataset</a>
+                </div>
+                <br><br>
+                <div class="container-md">
+                    <p style="color:white">Click the button below to find the Comparison of CO2 Emissions between Brands of some Luxury Car.</p>
+                    <a href="/compare" class="btn btn-primary" role="button">Brand Comparison</a>
+                </div>
+                <br><br><br><br>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
